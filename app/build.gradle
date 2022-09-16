@@ -39,6 +39,11 @@ android {
                 "-Xjvm-default=all",
         ]
     }
+
+    lintOptions {
+        checkOnly("NewApi", "HandlerLeak")
+        baseline(file("lint-baseline.xml"))
+    }
 }
 
 dependencies {

@@ -1,4 +1,4 @@
-package com.jppedrosa.vexillology.di
+package com.jppedrosa.vexillology.di.modules
 
 import com.jppedrosa.vexillology.BuildConfig
 import com.jppedrosa.vexillology.data.remote.VexillologyApi

@@ -1,36 +1,31 @@
 package com.jppedrosa.vexillology
 
-import android.app.Activity
 import android.app.Application
-import android.content.Context
-import com.jppedrosa.vexillology.di.AppInjector
+import com.jppedrosa.vexillology.di.component.DaggerAppComponent
+import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.HasAndroidInjector
 import javax.inject.Inject
 
 /**
  * @author João Pedro Pedrosa (<a href="mailto:joaopopedrosa@gmail.com">joaopopedrosa@gmail.com</a>) on 14/09/2022.
  */
-class VexillologyApplication : Application(), HasActivityInjector {
+class VexillologyApplication : Application(), HasAndroidInjector {
 
     @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
-    init {
-        instance = this
-    }
-
-    companion object {
-        private var instance: VexillologyApplication? = null
-        fun applicationContext(): Context {
-            return instance!!.applicationContext
-        }
+    override fun androidInjector(): AndroidInjector<Any> {
+        return dispatchingAndroidInjector
     }
 
     override fun onCreate() {
         super.onCreate()
-        AppInjector.init(this)
-    }
 
-    override fun activityInjector() = dispatchingAndroidInjector
+        //Dagger
+        DaggerAppComponent.builder()
+            .application(this)
+            .build()
+            .inject(this)
+    }
 }

@@ -2,17 +2,16 @@ package com.jppedrosa.vexillology.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jppedrosa.vexillology.databinding.ActivityMainBinding
 import com.jppedrosa.vexillology.di.factories.ViewModelFactory
 import com.jppedrosa.vexillology.ui.adapter.CountriesAdapter
+import com.jppedrosa.vexillology.ui.base.BaseActivity
 import com.jppedrosa.vexillology.ui.vm.MainViewModel
-import dagger.android.AndroidInjector
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory

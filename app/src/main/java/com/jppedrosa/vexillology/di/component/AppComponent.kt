@@ -2,7 +2,7 @@ package com.jppedrosa.vexillology.di.component
 
 import android.app.Application
 import com.jppedrosa.vexillology.VexillologyApplication
-import com.jppedrosa.vexillology.di.AppModule
+import com.jppedrosa.vexillology.di.modules.AppModule
 import com.jppedrosa.vexillology.di.modules.ActivityBuilderModule
 import com.jppedrosa.vexillology.di.modules.ViewModelModule
 import dagger.BindsInstance

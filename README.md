@@ -1,6 +1,6 @@
 # Vexillology
 
-Vexillology - MVVM app with View Binding + Dagger2 + RxJava + Retrofit + Mockito + Github Actions
+Vexillology - MVVM app with View Binding + LiveData + Dagger2 + RxJava + Retrofit + Mockito + Github Actions
 
 ## Technologies
 This project is created using:
